@@ -33,7 +33,7 @@ const textSpan= document.createElement("span");
 textSpan.textContent=todo.text;
 textSpan.style.margin='0 8px';
 if(todo.completed){
-    textSpan.style.textDecoration='line-through';
+    textSpan.style.textDecoration=todo.completed?'line-through':"";
 }
     // add double-click event listener
     textSpan.addEventListener("dblclick",()=>{
@@ -83,4 +83,9 @@ render()
 saveTodos()
 }
 addBtn.addEventListener("click",addTodo);
+input.addEventListener('keydown',(e)=>{
+    if(e.key=='Enter'){
+        addTodo();
+    }
+})
 render();
